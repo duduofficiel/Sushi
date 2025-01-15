@@ -88,43 +88,44 @@ class __TwigTemplate_48d9f9fc7259e07c5fea92d02010b11a extends Template
       <ul class=\"nav nav-pills\">
         <li class=\"nav-item\"><a href=\"";
         // line 31
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Accueil");
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("homepage");
         yield "\" class=\"nav-link active\" aria-current=\"page\">Accueil</a></li>
         <li class=\"nav-item\"><a href=\"";
         // line 32
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Menu");
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("pricing");
         yield "\" class=\"nav-link\">Menu</a></li>
         <li class=\"nav-item\"><a href=\"";
         // line 33
-        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Paiement");
-        yield "\" class=\"nav-link\">Paiement</a></li>
-        
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("checkout");
+        yield "\" class=\"nav-link\">Checkout</a></li> <!-- Changed from Paiement to Checkout -->
       </ul>
     </header>
 
 <main> 
         ";
-        // line 39
+        // line 38
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 40
+        // line 39
         yield "</main>
 
    <footer class=\"py-3 my-4\">
     <ul class=\"nav justify-content-center border-bottom pb-3 mb-3\">
       <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">Accueil</a></li>
       <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">Spécialités</a></li>
-      <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">Prix</a></li>
+      <li class=\"nav-item\"><a href=\"";
+        // line 45
+        yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("checkout");
+        yield "\" class=\"nav-link px-2 text-body-secondary\">Checkout</a></li> <!-- Changed from Paiement to Checkout -->
       <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">FAQ</a></li>
       <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">À propos</a></li>
     </ul>
     <p class=\"text-center text-body-secondary\">© 2025 Duduofficiel, Société par Actions Simplifiée (S.A.S.)</p>
   </footer>
 
-       
-
          <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
     </body>
-</html>";
+</html>
+";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
 
@@ -231,7 +232,7 @@ class __TwigTemplate_48d9f9fc7259e07c5fea92d02010b11a extends Template
         yield from [];
     }
 
-    // line 39
+    // line 38
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -274,7 +275,7 @@ class __TwigTemplate_48d9f9fc7259e07c5fea92d02010b11a extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  235 => 39,  212 => 12,  201 => 13,  198 => 12,  185 => 11,  174 => 9,  161 => 8,  138 => 5,  110 => 40,  108 => 39,  99 => 33,  95 => 32,  91 => 31,  72 => 14,  70 => 11,  67 => 10,  65 => 8,  59 => 5,  53 => 1,);
+        return array (  236 => 38,  213 => 12,  202 => 13,  199 => 12,  186 => 11,  175 => 9,  162 => 8,  139 => 5,  117 => 45,  109 => 39,  107 => 38,  99 => 33,  95 => 32,  91 => 31,  72 => 14,  70 => 11,  67 => 10,  65 => 8,  59 => 5,  53 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -309,10 +310,9 @@ class __TwigTemplate_48d9f9fc7259e07c5fea92d02010b11a extends Template
       </a>
 
       <ul class=\"nav nav-pills\">
-        <li class=\"nav-item\"><a href=\"{{ path ('Accueil') }}\" class=\"nav-link active\" aria-current=\"page\">Accueil</a></li>
-        <li class=\"nav-item\"><a href=\"{{ path ('Menu') }}\" class=\"nav-link\">Menu</a></li>
-        <li class=\"nav-item\"><a href=\"{{ path ('Paiement') }}\" class=\"nav-link\">Paiement</a></li>
-        
+        <li class=\"nav-item\"><a href=\"{{ path ('homepage') }}\" class=\"nav-link active\" aria-current=\"page\">Accueil</a></li>
+        <li class=\"nav-item\"><a href=\"{{ path ('pricing') }}\" class=\"nav-link\">Menu</a></li>
+        <li class=\"nav-item\"><a href=\"{{ path ('checkout') }}\" class=\"nav-link\">Checkout</a></li> <!-- Changed from Paiement to Checkout -->
       </ul>
     </header>
 
@@ -324,17 +324,16 @@ class __TwigTemplate_48d9f9fc7259e07c5fea92d02010b11a extends Template
     <ul class=\"nav justify-content-center border-bottom pb-3 mb-3\">
       <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">Accueil</a></li>
       <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">Spécialités</a></li>
-      <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">Prix</a></li>
+      <li class=\"nav-item\"><a href=\"{{ path('checkout') }}\" class=\"nav-link px-2 text-body-secondary\">Checkout</a></li> <!-- Changed from Paiement to Checkout -->
       <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">FAQ</a></li>
       <li class=\"nav-item\"><a href=\"#\" class=\"nav-link px-2 text-body-secondary\">À propos</a></li>
     </ul>
     <p class=\"text-center text-body-secondary\">© 2025 Duduofficiel, Société par Actions Simplifiée (S.A.S.)</p>
   </footer>
 
-       
-
          <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
     </body>
-</html>", "base.html.twig", "/home/dudu/Symfony/Sushi/templates/base.html.twig");
+</html>
+", "base.html.twig", "/home/dudu/Symfony/Sushi/templates/base.html.twig");
     }
 }
