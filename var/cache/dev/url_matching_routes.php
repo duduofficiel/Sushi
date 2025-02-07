@@ -14,9 +14,18 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/checkout-page' => [[['_route' => 'checkout', '_controller' => 'App\\Controller\\CheckoutController::index'], null, null, null, false, false, null]],
+        '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
+        '/checkout' => [[['_route' => 'checkout', '_controller' => 'App\\Controller\\CheckoutController::index'], null, null, null, false, false, null]],
+        '/checkout/process' => [[['_route' => 'checkout_process', '_controller' => 'App\\Controller\\CheckoutController::handleCheckout'], null, ['POST' => 0], null, false, false, null]],
+        '/checkout/success' => [[['_route' => 'checkout_success', '_controller' => 'App\\Controller\\CheckoutController::success'], null, null, null, false, false, null]],
+        '/contact-us' => [[['_route' => 'contactus', '_controller' => 'App\\Controller\\ContactUsController::manage'], null, ['POST' => 0], null, false, false, null]],
         '/' => [[['_route' => 'homepage', '_controller' => 'App\\Controller\\HomepageController::index'], null, null, null, false, false, null]],
         '/pricing' => [[['_route' => 'pricing', '_controller' => 'App\\Controller\\PricingController::index'], null, null, null, false, false, null]],
+        '/pricing/plan' => [[['_route' => 'app_pricing_plan_index', '_controller' => 'App\\Controller\\PricingPlanController::index'], null, ['GET' => 0], null, false, false, null]],
+        '/pricing/plan/new' => [[['_route' => 'app_pricing_plan_new', '_controller' => 'App\\Controller\\PricingPlanController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/pricing/plan/feature/new' => [[['_route' => 'app_pricing_plan_feature_new', '_controller' => 'App\\Controller\\PricingPlanFeatureController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
+        '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -38,6 +47,21 @@ return [
                         .')'
                     .')'
                 .')'
+                .'|/pricing/plan/(?'
+                    .'|([^/]++)(?'
+                        .'|(*:230)'
+                        .'|/edit(*:243)'
+                        .'|(*:251)'
+                    .')'
+                    .'|feature(?'
+                        .'|(*:270)'
+                        .'|/([^/]++)(?'
+                            .'|(*:290)'
+                            .'|/edit(*:303)'
+                            .'|(*:311)'
+                        .')'
+                    .')'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -48,8 +72,15 @@ return [
         148 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         168 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         181 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        191 => [
-            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
+        191 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
+        230 => [[['_route' => 'app_pricing_plan_show', '_controller' => 'App\\Controller\\PricingPlanController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        243 => [[['_route' => 'app_pricing_plan_edit', '_controller' => 'App\\Controller\\PricingPlanController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        251 => [[['_route' => 'app_pricing_plan_delete', '_controller' => 'App\\Controller\\PricingPlanController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        270 => [[['_route' => 'app_pricing_plan_feature_index', '_controller' => 'App\\Controller\\PricingPlanFeatureController::index'], [], ['GET' => 0], null, false, false, null]],
+        290 => [[['_route' => 'app_pricing_plan_feature_show', '_controller' => 'App\\Controller\\PricingPlanFeatureController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        303 => [[['_route' => 'app_pricing_plan_feature_edit', '_controller' => 'App\\Controller\\PricingPlanFeatureController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        311 => [
+            [['_route' => 'app_pricing_plan_feature_delete', '_controller' => 'App\\Controller\\PricingPlanFeatureController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

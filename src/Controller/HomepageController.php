@@ -1,6 +1,6 @@
 <?php
 
-// src/Controller/HomepageController.php
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,5 +13,6 @@ class HomepageController extends AbstractController
     public function index(): Response
     {
         return $this->render('homepage/index.html.twig');
+
     }
 }

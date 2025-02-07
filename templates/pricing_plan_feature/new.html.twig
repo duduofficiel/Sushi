@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PricingPlanFeature{% endblock %}
+
+{% block body %}
+    <h1>Create new PricingPlanFeature</h1>
+
+    {{ include('pricing_plan_feature/_form.html.twig') }}
+
+    <a href="{{ path('app_pricing_plan_feature_index') }}">back to list</a>
+{% endblock %}
